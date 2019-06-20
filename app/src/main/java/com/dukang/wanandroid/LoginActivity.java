@@ -30,13 +30,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.dukang.wanandroid.retrofit.HttpCallBack;
+import com.dukang.wanandroid.retrofit.RequestManager;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
@@ -45,7 +47,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor>, HttpCallBack {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -201,15 +203,39 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void retrofitRequest() {
+
+        LoginService loginServiceImp= RequestManager.creatImpl(LoginService.class);
+        Call<ResponseBody> call = loginServiceImp.login("wangdukang22", "123456");
+        RequestManager.requestEnque(call,this);
+
+
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl("https://www.wanandroid.com")
                 .build();
+//
+//        LoginService loginServiceImp=retrofit.create(LoginService.class);
+//        Call<ResponseBody> call = loginServiceImp.login("wangdukang22", "123456");
+//        call.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                Log.e("json_body:",response.toString());
+//                Log.e("json_body:",response.code()+"");
+//                try {
+//                    Log.e("json_body:",response.body().string()+"");
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                Log.e("failed",t.getMessage());
+//            }
+//        });
+    }
 
-        LoginService loginServiceImp=retrofit.create(LoginService.class);
-        Call<ResponseBody> call = loginServiceImp.login("wangdukang22", "123456");
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+    @Override
+    public void onSuccess(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.e("json_body:",response.toString());
                 Log.e("json_body:",response.code()+"");
                 try {
@@ -217,13 +243,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+    }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+    @Override
+    public void onFailed(Call<ResponseBody> call, Throwable t) {
                 Log.e("failed",t.getMessage());
-            }
-        });
     }
 
     private boolean isEmailValid(String email) {
