@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import com.dukang.wanandroid.RHttp.api.Api;
 import com.dukang.wanandroid.RHttp.callback.HttpCallback;
 import com.dukang.wanandroid.RHttp.observer.HttpObservable;
-import com.dukang.wanandroid.RHttp.observer.HttpObserver;
 import com.dukang.wanandroid.RHttp.retrofit.Method;
 import com.dukang.wanandroid.RHttp.retrofit.RetrofitUtils;
 import com.dukang.wanandroid.RHttp.utils.RequestUtils;
@@ -26,7 +25,6 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
-import retrofit2.http.PUT;
 
 /**
  * @Description :
