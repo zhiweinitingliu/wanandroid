@@ -41,7 +41,7 @@ public class LoginContract {
                     .subscribe(new Observer<ResponseBody>() {
                         @Override
                         public void onSubscribe(Disposable d) {
-
+                            Log.e("onSubscribe","onSubscribe");
                         }
 
                         @Override
@@ -55,12 +55,18 @@ public class LoginContract {
 
                         @Override
                         public void onError(Throwable e) {
+                            Log.e("errorle","异常了");
+                            try{
 
+                                Log.e("error",e.getMessage());
+                            }catch (Exception exception){
+                                e.printStackTrace();
+                            }
                         }
 
                         @Override
                         public void onComplete() {
-
+                            Log.e("onComplete","onComplete");
                         }
                     });
         }
