@@ -31,7 +31,7 @@ public class RetrofitManager {
                 .build();
     }
 
-    public <T> T creatImpl(Class<T> service) {
+    public <T> T createImpl(Class<T> service) {
         return mRetrofit.create(service);
 
     }

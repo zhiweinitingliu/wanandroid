@@ -31,7 +31,7 @@ public class LoginContract {
         private LoginService loginService;
 
         public LoginPresenter() {
-            loginService = RetrofitManager.getInstance().creatImpl(LoginService.class);
+            loginService = RetrofitManager.getInstance().createImpl(LoginService.class);
         }
 
         public void doLogin(String userName, String password) {
