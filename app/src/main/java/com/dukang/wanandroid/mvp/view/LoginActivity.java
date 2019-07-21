@@ -24,7 +24,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private EditText etPassword;
     private Button btnLogin;
 
-    LoginContract.LoginPresenter loginPresenter = new LoginContract.LoginPresenter();
+    LoginContract.LoginPresenter loginPresenter = new LoginContract.LoginPresenter(this);
 
     @Override
     public int getLayout(Bundle savedInstanceState) {
