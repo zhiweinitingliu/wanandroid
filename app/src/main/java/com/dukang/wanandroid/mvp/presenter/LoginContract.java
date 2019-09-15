@@ -1,6 +1,7 @@
 package com.dukang.wanandroid.mvp.presenter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 
 import com.dukang.wanandroid.mvp.model.LoginBean;
@@ -8,6 +9,7 @@ import com.dukang.wanandroid.mvp.model.LoginService;
 import com.dukang.wanandroid.mvp.retrofit.MyObserver;
 import com.dukang.wanandroid.mvp.retrofit.ObserverCallBack;
 import com.dukang.wanandroid.mvp.retrofit.RetrofitManager;
+import com.dukang.wanandroid.mvp.view.MainActivity;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -42,6 +44,8 @@ public class LoginContract {
                 public void onSuccess(Object o) {
                     LoginBean loginBean = (LoginBean) o;
                     Log.e("response", loginBean.toString());
+                    Intent intent=new Intent(activity, MainActivity.class);
+                    activity.startActivity(intent);
                 }
 
                 @Override

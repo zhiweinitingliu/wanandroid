@@ -1,0 +1,34 @@
+package com.dk.common_base.base;
+
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * @Description :
+ * @Author : wdk
+ * @CretaTime : 2019/7/1 14:43
+ * @LastModify(最终修改人) :wdk
+ * @LastModifyTime(最终修改时间) : 2019/7/1 14:43
+ * @LastCheckBy :wdk
+ */
+public abstract class BaseActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getLayout(savedInstanceState));
+        initView();
+        initData();
+        initListener();
+    }
+
+    public abstract int getLayout(Bundle savedInstanceState);
+
+    public abstract void initView();
+
+    public abstract void initData();
+
+    public abstract void initListener();
+}

@@ -2,7 +2,8 @@ package com.dukang.wanandroid.RHttp.cancel;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.support.v4.util.ArrayMap;
+
+import androidx.collection.ArrayMap;
 
 import java.util.Set;
 
