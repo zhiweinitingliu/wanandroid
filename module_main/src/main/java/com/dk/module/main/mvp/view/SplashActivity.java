@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.dk.common_base.base.BaseActivity;
+import com.dk.common_base.base.BasePresenter;
 import com.dk.module.main.R;
 
 /**
@@ -18,6 +19,11 @@ public class SplashActivity extends BaseActivity {
     @Override
     public int getLayout(Bundle savedInstanceState) {
         return R.layout.act_splash;
+    }
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
     }
 
     @Override

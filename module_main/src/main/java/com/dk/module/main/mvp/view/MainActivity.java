@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dk.common_base.base.BaseActivity;
+import com.dk.common_base.base.BasePresenter;
 import com.dk.common_base.utils.IntentManager;
 import com.dk.module.main.R;
 
@@ -24,6 +25,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public int getLayout(Bundle savedInstanceState) {
         return R.layout.act_main;
+    }
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
     }
 
     @Override

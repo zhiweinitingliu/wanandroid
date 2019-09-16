@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.main.UserMainActivity">
+        <activity android:name=".mvp.view.main.UserMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -17,14 +17,14 @@
 
         </activity>
         <activity
-            android:name=".ui.account.LoginActivity"
+            android:name=".mvp.view.account.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".ui.account.RegisterActivity"
+            android:name=".mvp.view.account.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.about.AboutActivity"
+            android:name=".mvp.view.about.AboutActivity"
             android:screenOrientation="portrait" />
 
 
